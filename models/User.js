@@ -9,15 +9,19 @@ const userSchema = new Schema({
     email: {
         type: String,
         match: [/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, 'Email is invalid'],
-        unique: [true, 'Email already in use'],
+        unique: true,
         required: [true, 'Email is required'],
     },
     password: {
         type: String,
-        min: [8, 'Password should be more than eight characters'],
+        minLength: [8, 'Password should be more than eight characters'],
         required: true
     },
-    profilePhoto: String,
+    profilePhoto: {
+        type: String,
+        required: false,
+        default: ''
+    },
     purpose: {
         type: [String],
         enum: ['social interaction', 'personal develop', 'entertainment and fun', 'rewards and recognition'],

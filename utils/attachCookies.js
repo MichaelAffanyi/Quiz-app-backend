@@ -6,8 +6,8 @@ const createToken = (payload) => {
 const attachCookies = ({res, payload, expires}) => {
     const token = createToken(payload)
     res.cookie('accessToken', token, {
-        httpOnly: true,
-        secure: process.env.JWT_SECRET,
+        httpOnly: false,
+        secure: process.env.NODE_ENV === 'production',
         sign: true,
         expires: new Date(Date.now() + expires)
     })

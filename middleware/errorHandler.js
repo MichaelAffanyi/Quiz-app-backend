@@ -13,7 +13,11 @@ const errorHandler = (err, req, res, next) => {
         customError.status = 400
     }
     if(err.code && err.code === 11000) {
-        customError.message = `Duplicated value entered for ${Object.keys(err.keyValue)}`
+        if(Object.keys(err.keyValue).includes('email')) {
+            customError.message = "User already exist with that email"
+        } else {
+            customError.message = `Duplicated value entered for ${Object.keys(err.keyValue)}`
+        }
         customError.status = 400
     }
     if (err.name === 'CastError') {

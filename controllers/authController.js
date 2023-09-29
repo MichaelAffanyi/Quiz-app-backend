@@ -1,9 +1,11 @@
 const User = require('../models/User')
 const { attachCookies, sendEmail} = require("../utils");
 const asyncWrapper = require('../utils/asyncWrapper')
-const {BadRequestError, NotFoundError} = require('../errors')
+const {BadRequestError, NotFoundError, UnAuthorizedError} = require('../errors')
 const crypto = require('crypto')
 const {StatusCodes} = require("http-status-codes");
+const fs = require("fs");
+const cloudinary = require('cloudinary').v2
 
 exports.registerUser = asyncWrapper(
     async (req, res) => {
@@ -104,4 +106,70 @@ exports.resetPassword = asyncWrapper(async (req, res) => {
     user.passwordToken = ''
     user.save()
     res.status(StatusCodes.OK).json({msg: 'Password reset successfully'})
+})
+
+exports.uploadProfile = asyncWrapper(async (req, res) => {
+    const file = req.files
+    const {id} = req.body
+    if (!file || !id) {
+        throw new BadRequestError('Please provide an image')
+    }
+
+    if (!file.image.mimetype.includes('image')) {
+        throw new BadRequestError('File should be an image')
+    }
+
+    const user = await User.findById(id)
+    console.log(user)
+    if (!user) {
+        throw new UnAuthorizedError("Cannot set profile image")
+    }
+
+    const result = await cloudinary.uploader.upload(file.image.tempFilePath, {
+        folder: 'quiz app',
+        use_filename: true,
+        overwrite: true
+    })
+    console.log(result)
+    await fs.unlinkSync(file.image.tempFilePath)
+
+    user.profilePhoto = result.secure_url
+    await user.save()
+
+    res.status(StatusCodes.OK).json({image: result.secure_url})
+})
+
+exports.addInterest = asyncWrapper(async (req, res) => {
+    const {interests, id} = req.body
+    if(!interests || !id) {
+        throw new BadRequestError('Please provide credentials')
+    }
+    if (!Array.isArray(interests)) {
+        throw new BadRequestError('Invalid format for interests')
+    }
+
+    const user = await User.findById(id)
+    if (!user) {
+        throw new UnAuthorizedError('Cannot add interests')
+    }
+    user.interest = interests
+    await user.save()
+    res.status(StatusCodes.OK).json({msg: 'Interests added'})
+})
+exports.addPurpose = asyncWrapper(async (req, res) => {
+    const {purpose, id} = req.body
+    if(!purpose || !id) {
+        throw new BadRequestError('Please provide credentials')
+    }
+    if (!Array.isArray(purpose)) {
+        throw new BadRequestError('Invalid format for purpose')
+    }
+
+    const user = await User.findById(id)
+    if (!user) {
+        throw new UnAuthorizedError('Cannot add purpose')
+    }
+    user.purpose = purpose
+    await user.save()
+    res.status(StatusCodes.OK).json({msg: 'Purpose added'})
 })
