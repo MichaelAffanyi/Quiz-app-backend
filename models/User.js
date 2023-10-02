@@ -36,6 +36,10 @@ const userSchema = new Schema({
         type: String,
         default: ''
     },
+    cloudinaryId: {
+        type: String,
+        default: ''
+    },
     passwordTokenLifetime: Date
 })
 

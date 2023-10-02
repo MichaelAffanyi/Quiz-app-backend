@@ -120,20 +120,21 @@ exports.uploadProfile = asyncWrapper(async (req, res) => {
     }
 
     const user = await User.findById(id)
-    console.log(user)
     if (!user) {
         throw new UnAuthorizedError("Cannot set profile image")
     }
 
     const result = await cloudinary.uploader.upload(file.image.tempFilePath, {
+        public_id: user.cloudinaryId,
         folder: 'quiz app',
         use_filename: true,
         overwrite: true
     })
-    console.log(result)
+    const publicId = result.public_id.split('/')[1]
     await fs.unlinkSync(file.image.tempFilePath)
 
     user.profilePhoto = result.secure_url
+    user.cloudinaryId = publicId
     await user.save()
 
     res.status(StatusCodes.OK).json({image: result.secure_url})
