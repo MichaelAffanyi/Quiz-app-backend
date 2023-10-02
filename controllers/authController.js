@@ -5,6 +5,7 @@ const {BadRequestError, NotFoundError, UnAuthorizedError} = require('../errors')
 const crypto = require('crypto')
 const {StatusCodes} = require("http-status-codes");
 const fs = require("fs");
+const {hashPassword} = require("../helpers");
 const cloudinary = require('cloudinary').v2
 
 exports.registerUser = asyncWrapper(
@@ -13,7 +14,8 @@ exports.registerUser = asyncWrapper(
         if(!name || !email || !password) {
             throw new BadRequestError('Name, email or password cannot be empty')
         }
-        const userDoc = await User.create({name, email, password})
+        const hashedPassword = await hashPassword(password)
+        const userDoc = await User.create({name, email, password: hashedPassword})
 
         const user = {
             id: userDoc._id,

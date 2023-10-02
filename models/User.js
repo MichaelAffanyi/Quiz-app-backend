@@ -24,7 +24,7 @@ const userSchema = new Schema({
     },
     purpose: {
         type: [String],
-        enum: ['social interaction', 'personal develop', 'entertainment and fun', 'rewards and recognition'],
+        enum: ['social interaction', 'personal development', 'entertainment and fun', 'rewards and recognition'],
         default: []
     },
     interest: {
@@ -43,10 +43,10 @@ const userSchema = new Schema({
     passwordTokenLifetime: Date
 })
 
-userSchema.pre('save', async function(next) {
-    const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(this.password, salt)
-})
+// userSchema.methods.hashPassword = async function() {
+//     const salt = await bcrypt.genSalt(10);
+//     this.password = await bcrypt.hash(this.password, salt)
+// }
 
 userSchema.methods.comparePassword = function (password) {
     return bcrypt.compare(password, this.password)
