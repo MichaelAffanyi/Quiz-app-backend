@@ -1,4 +1,4 @@
-const attachCookies = require('./attachCookies')
+const {attachCookies} = require('./attachCookies')
 const sendEmail = require('./sendEmail')
 
 module.exports = {

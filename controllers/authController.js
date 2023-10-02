@@ -17,13 +17,14 @@ exports.registerUser = asyncWrapper(
         const hashedPassword = await hashPassword(password)
         const userDoc = await User.create({name, email, password: hashedPassword})
 
+        const expires = 1000 * 60 * 60 * 24
         const user = {
             id: userDoc._id,
-            name: userDoc.name,
-            email: userDoc.email
+            // name: userDoc.name,
+            // email: userDoc.email
         }
-
-        res.status(200).json({msg: 'User Registered successfully', user})
+        attachCookies({res, payload: user, expires})
+        res.status(200).json({msg: 'User Registered successfully'})
     }
 )
 
@@ -48,13 +49,19 @@ exports.loginUser = asyncWrapper(
         }
         const jwtUser = {
             id: user._id,
-            name: user.name,
-            email: user.email
+            // name: user.name,
+            // email: user.email
         }
         attachCookies({res, payload: jwtUser, expires: tokenLifetime})
-        res.status(200).json({msg: 'login successful', user: jwtUser})
+        res.status(200).json({msg: 'login successful'})
     }
 )
+
+exports.showMe = asyncWrapper(async (req, res) => {
+    const {id} = req.user
+    const user = await User.findById(id).select(['-password', '-purpose', '-interest', '-passwordToken', '-cloudinaryId'])
+    res.status(StatusCodes.OK).json({user})
+})
 
 exports.forgotPassword = asyncWrapper(async (req, res) => {
     const {email} = req.body
@@ -112,8 +119,8 @@ exports.resetPassword = asyncWrapper(async (req, res) => {
 
 exports.uploadProfile = asyncWrapper(async (req, res) => {
     const file = req.files
-    const {id} = req.body
-    if (!file || !id) {
+    const {id} = req.user
+    if (!file) {
         throw new BadRequestError('Please provide an image')
     }
 
@@ -143,9 +150,10 @@ exports.uploadProfile = asyncWrapper(async (req, res) => {
 })
 
 exports.addInterest = asyncWrapper(async (req, res) => {
-    const {interests, id} = req.body
-    if(!interests || !id) {
-        throw new BadRequestError('Please provide credentials')
+    const {interests} = req.body
+    const {id} = req.user
+    if(!interests) {
+        throw new BadRequestError('Please provide interests')
     }
     if (!Array.isArray(interests)) {
         throw new BadRequestError('Invalid format for interests')
@@ -160,8 +168,9 @@ exports.addInterest = asyncWrapper(async (req, res) => {
     res.status(StatusCodes.OK).json({msg: 'Interests added'})
 })
 exports.addPurpose = asyncWrapper(async (req, res) => {
-    const {purpose, id} = req.body
-    if(!purpose || !id) {
+    const {purpose} = req.body
+    const {id} = req.user
+    if(!purpose) {
         throw new BadRequestError('Please provide credentials')
     }
     if (!Array.isArray(purpose)) {
