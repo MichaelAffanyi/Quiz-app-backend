@@ -10,13 +10,14 @@ const attachCookies = ({res, payload, expires}) => {
     res.cookie('accessToken', token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
-        sign: true,
+        signed: true,
         expires: new Date(Date.now() + expires)
     })
 }
 
 const getCookies = asyncWrapper(async (req, res, next) => {
-    const {accessToken} = req?.cookies
+    const {accessToken} = req?.signedCookies
+    console.log(accessToken)
     if(!accessToken) {
         throw new UnAuthorizedError("Not authorized to access this resource")
     }

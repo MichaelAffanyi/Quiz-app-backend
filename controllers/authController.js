@@ -57,9 +57,17 @@ exports.loginUser = asyncWrapper(
     }
 )
 
+exports.logoutUser = asyncWrapper(async (req, res) => {
+    res.clearCookie('accessToken')
+    res.status(StatusCodes.OK).json({msg: 'User logged out successfully'})
+})
+
 exports.showMe = asyncWrapper(async (req, res) => {
     const {id} = req.user
     const user = await User.findById(id).select(['-password', '-purpose', '-interest', '-passwordToken', '-cloudinaryId'])
+    if(!user) {
+        throw new NotFoundError("No user found")
+    }
     res.status(StatusCodes.OK).json({user})
 })
 
