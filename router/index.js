@@ -1,5 +1,7 @@
 const auth = require('./auth')
+const settings = require('./settings')
 
 module.exports = {
-    authRouter: auth
+    authRouter: auth,
+    settingsRouter: settings
 }

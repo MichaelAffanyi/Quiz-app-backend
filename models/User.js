@@ -40,7 +40,22 @@ const userSchema = new Schema({
         type: String,
         default: ''
     },
-    passwordTokenLifetime: Date
+    passwordTokenLifetime: Date,
+    contact: {
+        type: String,
+        required: false,
+        default: ''
+    },
+    location: {
+        type: String,
+        required: false,
+        default: ''
+    },
+    gender: {
+        type: String,
+        required: false,
+        default: ''
+    }
 })
 
 // userSchema.methods.hashPassword = async function() {
