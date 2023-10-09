@@ -93,7 +93,7 @@ exports.forgotPassword = asyncWrapper(async (req, res) => {
             html: `
                     <div class="container">
                         <h1>Please click on the link below to reset your password</h1>
-                        <a href="http://localhost/4000/reset-password/${randomToken}">Password reset</a>
+                        <a href="http://localhost:4000/reset-password/${randomToken}">Password reset</a>
                     </div>
                    `
         }
@@ -109,16 +109,16 @@ exports.resetPassword = asyncWrapper(async (req, res) => {
         throw new BadRequestError('Passwords do not match')
     }
     const passwordToken = crypto.createHash('md5').update(token).digest('hex')
-    const user = await User.findOne({passwordToken})
 
+    const user = await User.findOne({passwordToken})
     if(!user) {
-        throw new BadRequestError('Cannot reset password now')
+        throw new BadRequestError('Unauthorized to access this resource')
     }
 
     if(user.passwordTokenLifetime < new Date(Date.now())) {
         throw new BadRequestError('Reset Link expired Please try again')
     }
-    user.password = newPassword
+    user.password = await hashPassword(newPassword)
     user.passwordTokenLifetime = null
     user.passwordToken = ''
     user.save()
