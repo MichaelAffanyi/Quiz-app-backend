@@ -46,14 +46,11 @@ exports.changePassword = asyncWrapper(async (req, res, next) => {
 
 exports.deleteAccount = asyncWrapper(async (req, res, next) => {
     const {id} = req.user
-    const user = await User.findById(id)
+    const user = await User.findByIdAndDelete(id)
     if(!user) {
         throw new NotFoundError("Can't delete user now, try again later.")
     }
     const public_id = user.cloudinaryId
-    console.log(public_id)
-    const response = await cloudinary.uploader.destroy(`quiz app/${public_id}`)
-    console.log(response)
-    await user.remove()
+    await cloudinary.uploader.destroy(`quiz app/${public_id}`)
     res.status(StatusCodes.OK).json({msg: 'User deleted successfully'})
 })

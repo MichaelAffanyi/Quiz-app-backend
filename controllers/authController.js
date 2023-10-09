@@ -78,8 +78,9 @@ exports.forgotPassword = asyncWrapper(async (req, res) => {
     }
 
     const user = await User.findOne({email})
+    // console.log(user)
 
-    if(email) {
+    if(user) {
         const randomToken = crypto.randomBytes(40).toString('hex')
         const passwordToken = crypto.createHash('md5').update(randomToken).digest('hex')
         const passwordTokenLifetime = new Date(Date.now() + (1000 * 60 * 10))
@@ -90,16 +91,15 @@ exports.forgotPassword = asyncWrapper(async (req, res) => {
             to: email,
             subject: 'Password Reset',
             html: `
-<div class="container">
-    <h1>Please click on the link below to reset your password</h1>
-    <a href="http://localhost/4000/reset-password/${randomToken}">Password reset</a>
-</div>
-`
+                    <div class="container">
+                        <h1>Please click on the link below to reset your password</h1>
+                        <a href="http://localhost/4000/reset-password/${randomToken}">Password reset</a>
+                    </div>
+                   `
         }
         await sendEmail(emailTemplate)
-        console.log({passwordToken, passwordTokenLifetime})
+        user.save()
     }
-    user.save()
     res.status(200).json({msg: 'Reset link sent. Please check your email'})
 })
 
@@ -148,7 +148,7 @@ exports.uploadProfile = asyncWrapper(async (req, res) => {
         overwrite: true
     })
     const publicId = result.public_id.split('/')[1]
-    await fs.unlinkSync(file.image.tempFilePath)
+    fs.unlinkSync(file.image.tempFilePath)
 
     user.profilePhoto = result.secure_url
     user.cloudinaryId = publicId

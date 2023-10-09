@@ -9,13 +9,15 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-const sendEmail = ({to, html, subject}) => {
-    transporter.sendMail({
+const sendEmail = async ({to, html, subject}) => {
+    await transporter.sendMail({
         from: '"Quiz App" <quizapp@gmail.com>',
         to,
         html,
         subject
     })
+
+    // console.log(info)
 }
 
 module.exports = sendEmail
