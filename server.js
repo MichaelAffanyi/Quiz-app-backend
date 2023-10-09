@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const dotenv = require('dotenv').config()
-const {authRouter, settingsRouter} = require('./router')
+const {authRouter, settingsRouter, quizRouter} = require('./router')
 const connectDB = require('./helpers/connectDB')
 const errorHandler = require('./middleware/errorHandler')
 const coockieParser = require('cookie-parser')
@@ -31,6 +31,7 @@ app.get('/', (req, res) => {
 })
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/settings', [getCookies, settingsRouter])
+app.use('/api/v1/quizzes', [getCookies, quizRouter])
 
 app.use(errorHandler)
 

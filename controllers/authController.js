@@ -10,16 +10,23 @@ const cloudinary = require('cloudinary').v2
 
 exports.registerUser = asyncWrapper(
     async (req, res) => {
+        let role = 'user'
         const {name, email, password} = req.body
         if(!name || !email || !password) {
             throw new BadRequestError('Name, email or password cannot be empty')
         }
         const hashedPassword = await hashPassword(password)
-        const userDoc = await User.create({name, email, password: hashedPassword})
+        const users = await User.countDocuments()
+        console.log(users)
+        if (users < 1) {
+            role = 'admin'
+        }
+        const userDoc = await User.create({name, email, password: hashedPassword, role})
 
         const expires = 1000 * 60 * 60 * 24
         const user = {
             id: userDoc._id,
+            role: userDoc.role
             // name: userDoc.name,
             // email: userDoc.email
         }
@@ -49,6 +56,7 @@ exports.loginUser = asyncWrapper(
         }
         const jwtUser = {
             id: user._id,
+            role: user.role
             // name: user.name,
             // email: user.email
         }
