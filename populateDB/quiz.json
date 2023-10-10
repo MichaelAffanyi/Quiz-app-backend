@@ -1,0 +1,555 @@
+[
+    {
+      "title": "History",
+      "level": "beginner",
+      "subject": "data science",
+      "author": "mikael",
+      "duration": "1",
+      "questions": [
+        {
+          "question": "In what year did World War I begin?",
+          "points": 10,
+          "options": ["1914", "1918", "1920", "1939"],
+          "answer": "1914",
+          "explanation": "null"
+        },
+        {
+          "question": "What was the first permanent English settlement in North America?",
+          "points": 10,
+          "options": ["Jamestown", "Plymouth", "Roanoke", "Boston"],
+          "answer": "Jamestown",
+          "explanation": "null"
+        },
+        {
+          "question": "Who was the first U.S. president to be impeached?",
+          "points": 10,
+          "options": ["Bill Clinton", "Richard Nixon", "Donald Trump", "Andrew Johnson"],
+          "answer": "Andrew Johnson",
+          "explanation": "null"
+        },
+        {
+          "question": "What was the outcome of the Battle of Gettysburg?",
+          "points": 10,
+          "options": ["Union Victory", "Confederate Victory", "Draw", "No outcome"],
+          "answer": "Union Victory",
+          "explanation": "null"
+        },
+        {
+          "question": "Who wrote the Gettysburg Address?",
+          "points": 10,
+          "options": ["Abraham Lincoln", "George Washington", "Thomas Jefferson", "Barack Obama"],
+          "answer": "Abraham Lincoln",
+          "explanation": "null"
+        },
+        {
+          "question": "What is the significance of the Magna Carta?",
+          "points": 10,
+          "options": ["Established Rule of Law", "Declared Independence", "Promote peace among states", "Foster democracy"],
+          "answer": "Established Rule of Law",
+          "explanation": "null"
+        },
+        {
+          "question": "Who was the first woman to fly solo across the Atlantic Ocean?",
+          "points": 10,
+          "options": ["Amelia Earhart", "Bessie Coleman", "Sally Ride", "China Ann Mclaine"],
+          "answer": "Amelia Earhart",
+          "explanation": "null"
+        },
+        {
+          "question": "What is the capital of France?",
+          "points": 10,
+          "options": ["Paris", "London", "Berlin", "Nairobi"],
+          "answer": "Paris",
+          "explanation": "null"
+        },
+        {
+          "question": "Who wrote 'Romeo and Juliet'?",
+          "points": 10,
+          "options": ["William Shakespeare", "Charles Dickens", "Jane Austen", "Michael Affanyi"],
+          "answer": "William Shakespeare",
+          "explanation": "null"
+        },
+        {
+          "question": "What is the largest planet in our solar system?",
+          "points": 10,
+          "options": ["Jupiter", "Mars", "Venus", "Mercury"],
+          "answer": "Jupiter",
+          "explanation": "null"
+        }
+      ]
+    },
+    {
+      "title": "Basic html",
+      "level": "beginner",
+      "subject": "web development",
+      "author": "mikael",
+      "duration": "2",
+      "questions": [
+        {
+          "question": "What does HTML stand for?",
+          "options": ["Hyper Text Markup Language", "Hyperlinks and Text Markup Language", "Home Tool Markup Language", "Hyper Transfer Markup Language"],
+          "answer": "Hyper Text Markup Language",
+          "points": 10,
+          "explanation": "HTML stands for Hyper Text Markup Language, which is used for creating the structure and content of web pages."
+        },
+        {
+          "question": "Which HTML tag is used to create a hyperlink?",
+          "options": ["<a>", "<link>", "<h1>", "<p>"],
+          "answer": "<a>",
+          "points": 10,
+          "explanation": "The <a> (anchor) tag is used to create hyperlinks on web pages."
+        },
+        {
+          "question": "What is the correct HTML element for inserting a line break?",
+          "options": ["<br>", "<lb>", "<break>", "<newline>"],
+          "answer": "<br>",
+          "points": 10,
+          "explanation": "The <br> element is used to insert a line break or a horizontal rule in HTML."
+        },
+        {
+          "question": "Which HTML element is used for creating an unordered list?",
+          "options": ["<ul>", "<ol>", "<li>", "<dl>"],
+          "answer": "<ul>",
+          "points": 10,
+          "explanation": "The <ul> (unordered list) element is used to create a bulleted list in HTML."
+        },
+        {
+          "question": "What is the correct HTML for adding a background color to a webpage?",
+          "options": ["<background>", "<bgcolor>", "<background-color>", "<style>"],
+          "answer": "<style>",
+          "points": 10,
+          "explanation": "To add a background color to a webpage, you typically use CSS within a <style> element."
+        },
+        {
+          "question": "Which HTML element is used for creating a table?",
+          "options": ["<table>", "<tr>", "<td>", "<th>"],
+          "answer": "<table>",
+          "points": 10,
+          "explanation": "The <table> element is used to create tables in HTML, and it contains rows and cells."
+        },
+        {
+          "question": "What is the purpose of the HTML <meta> tag?",
+          "options": ["To define metadata about the document", "To create a hyperlink", "To add a paragraph of text", "To insert an image"],
+          "answer": "To define metadata about the document",
+          "points": 10,
+          "explanation": "The <meta> tag is used to define metadata about the HTML document, such as character encoding and page description."
+        },
+        {
+          "question": "Which HTML tag is used for defining an image?",
+          "options": ["<img>", "<image>", "<picture>", "<graphic>"],
+          "answer": "<img>",
+          "points": 10,
+          "explanation": "The <img> tag is used to embed images in an HTML document."
+        },
+        {
+          "question": "What is the purpose of the HTML <head> element?",
+          "options": ["To define the visible content of the web page", "To specify the document's structure", "To define the header of the page", "To include scripts and meta information"],
+          "answer": "To include scripts and meta information",
+          "points": 10,
+          "explanation": "The <head> element is used to include metadata, links to stylesheets, and scripts that affect the document but are not visible on the page."
+        },
+        {
+          "question": "Which HTML element is used for creating a hyperlink within the same page?",
+          "options": ["<link>", "<a>", "<anchor>", "<hyperlink>"],
+          "answer": "<a>",
+          "points": 10,
+          "explanation": "The <a> (anchor) tag is used to create hyperlinks within the same page using anchor tags and fragment identifiers."
+        }
+      ]
+    },
+    {
+      "title": "Road to JavaScript mastery",
+      "level": "intermediate",
+      "subject": "web development",
+      "author": "mikael",
+      "duration": "2",
+      "questions": [
+        {
+          "question": "What is JavaScript?",
+          "options": ["A coffee brand", "A programming language", "A text editor", "A web browser"],
+          "answer": "A programming language",
+          "points": 10,
+          "explanation": "JavaScript is a high-level programming language commonly used for adding interactivity to web pages."
+        },
+        {
+          "question": "Which keyword is used to declare a variable in JavaScript?",
+          "options": ["var", "variable", "int", "let"],
+          "answer": "var",
+          "points": 10,
+          "explanation": "The 'var' keyword is used to declare variables in JavaScript. It has been largely replaced by 'let' and 'const' in modern JavaScript."
+        },
+        {
+          "question": "What is the result of 3 + '3' in JavaScript?",
+          "options": ["6", "33", "Error", "9"],
+          "answer": "33",
+          "points": 10,
+          "explanation": "In JavaScript, when you concatenate a number and a string, the number is converted to a string, resulting in '33'."
+        },
+        {
+          "question": "Which JavaScript function is used for printing output to the console?",
+          "options": ["console.log()", "print()", "alert()", "log()"],
+          "answer": "console.log()",
+          "points": 10,
+          "explanation": "The 'console.log()' function is used to print messages or data to the browser's console for debugging and logging."
+        },
+        {
+          "question": "What is an example of a JavaScript loop?",
+          "options": ["if statement", "switch statement", "for loop", "function declaration"],
+          "answer": "for loop",
+          "points": 10,
+          "explanation": "A 'for loop' in JavaScript is used to repeatedly execute a block of code based on a condition or iteration count."
+        },
+        {
+          "question": "Which operator is used for strict equality comparison in JavaScript?",
+          "options": ["==", "===", "!=", "!=="],
+          "answer": "===",
+          "points": 10,
+          "explanation": "The '===' operator in JavaScript performs a strict equality comparison, checking both value and data type."
+        },
+        {
+          "question": "What is the purpose of the JavaScript 'addEventListener' method?",
+          "options": ["To add a new HTML element", "To attach event handlers to HTML elements", "To create a new JavaScript object", "To define global variables"],
+          "answer": "To attach event handlers to HTML elements",
+          "points": 10,
+          "explanation": "The 'addEventListener' method is used to attach event listeners to HTML elements to handle user interactions."
+        },
+        {
+          "question": "Which JavaScript data type represents a collection of key-value pairs?",
+          "options": ["Array", "String", "Object", "Function"],
+          "answer": "Object",
+          "points": 10,
+          "explanation": "In JavaScript, an 'Object' is a data type that represents a collection of key-value pairs, where keys are strings."
+        },
+        {
+          "question": "What does 'NaN' stand for in JavaScript?",
+          "options": ["Not a Node", "Not a Number", "Null and Notable", "No Answer Needed"],
+          "answer": "Not a Number",
+          "points": 10,
+          "explanation": "'NaN' is a special value in JavaScript that represents 'Not a Number' and is returned when a mathematical operation fails."
+        },
+        {
+          "question": "What is the purpose of the JavaScript 'setTimeout' function?",
+          "options": ["To define a function", "To delay the execution of a function", "To add an event listener", "To create an array"],
+          "answer": "To delay the execution of a function",
+          "points": 10,
+          "explanation": "The 'setTimeout' function is used to schedule the execution of a function after a specified time delay."
+        }
+      ]
+    },
+    {
+      "title": "Data Science Mastery",
+      "level": "intermediate",
+      "subject": "data science",
+      "author": "mikael",
+      "duration": "2",
+      "questions": [
+        {
+          "question": "What is the primary goal of data science?",
+          "options": ["To create beautiful data visualizations", "To collect as much data as possible", "To extract insights and knowledge from data", "To write complex algorithms"],
+          "answer": "To extract insights and knowledge from data",
+          "points": 10,
+          "explanation": "The primary goal of data science is to extract valuable insights and knowledge from data through analysis and modeling."
+        },
+        {
+          "question": "Which programming language is widely used for data analysis and manipulation in data science?",
+          "options": ["Java", "Python", "C++", "Ruby"],
+          "answer": "Python",
+          "points": 10,
+          "explanation": "Python is one of the most popular programming languages for data science due to its extensive libraries and ease of use."
+        },
+        {
+          "question": "What is the process of cleaning, transforming, and organizing data for analysis called?",
+          "options": ["Data gathering", "Data visualization", "Data preprocessing", "Data modeling"],
+          "answer": "Data preprocessing",
+          "points": 10,
+          "explanation": "Data preprocessing involves preparing data for analysis by cleaning, transforming, and organizing it to make it suitable for modeling and visualization."
+        },
+        {
+          "question": "Which statistical measure provides a central value of a dataset and is often referred to as the 'average'?",
+          "options": ["Standard deviation", "Median", "Mode", "Mean"],
+          "answer": "Mean",
+          "points": 10,
+          "explanation": "The mean is a statistical measure that provides the central value of a dataset by summing all values and dividing by the number of data points."
+        },
+        {
+          "question": "In data science, what is 'feature engineering'?",
+          "options": ["The process of selecting the most important data features", "The process of creating new data features from existing ones", "The process of visualizing data features", "The process of labeling data features"],
+          "answer": "The process of creating new data features from existing ones",
+          "points": 10,
+          "explanation": "Feature engineering involves creating new data features from existing ones to improve the performance of machine learning models."
+        },
+        {
+          "question": "Which data visualization library in Python is often used for creating interactive and informative data visualizations?",
+          "options": ["Matplotlib", "Seaborn", "Plotly", "Pandas"],
+          "answer": "Plotly",
+          "points": 10,
+          "explanation": "Plotly is a popular data visualization library in Python that allows for interactive and informative visualizations."
+        },
+        {
+          "question": "What is the term for a machine learning technique that makes predictions based on past data and is widely used for classification and regression tasks?",
+          "options": ["Clustering", "Deep Learning", "Supervised Learning", "Unsupervised Learning"],
+          "answer": "Supervised Learning",
+          "points": 10,
+          "explanation": "Supervised learning is a machine learning technique where models are trained on labeled data to make predictions based on past data patterns."
+        },
+        {
+          "question": "What is the process of finding patterns, trends, and relationships in data called?",
+          "options": ["Data engineering", "Data analysis", "Data modeling", "Data visualization"],
+          "answer": "Data analysis",
+          "points": 10,
+          "explanation": "Data analysis is the process of exploring and finding patterns, trends, and relationships within data to gain insights."
+        },
+        {
+          "question": "Which statistical test is used to determine if there is a significant difference between the means of two groups?",
+          "options": ["Chi-squared test", "T-test", "ANOVA", "Regression analysis"],
+          "answer": "T-test",
+          "points": 10,
+          "explanation": "A T-test is commonly used to assess if there is a significant difference between the means of two groups or samples."
+        },
+        {
+          "question": "What is 'overfitting' in machine learning?",
+          "options": ["When a model performs well on the training data but poorly on new data", "When a model performs consistently well on all data", "When a model is too simple to capture patterns", "When a model is not trained long enough"],
+          "answer": "When a model performs well on the training data but poorly on new data",
+          "points": 10,
+          "explanation": "Overfitting occurs when a machine learning model learns the training data too closely and performs poorly on new, unseen data."
+        }
+      ]
+    },
+    {
+      "title": "JavaScript masters",
+      "level": "expert",
+      "subject": "web development",
+      "author": "mikael",
+      "duration": "3",
+      "questions": [
+        {
+          "question": "What is the difference between 'let' and 'const' for declaring variables in JavaScript?",
+          "options": ["'let' is block-scoped, 'const' is function-scoped", "'let' is used for primitive types, 'const' is used for objects", "'let' allows variable reassignment, 'const' does not", "'let' is used for constants, 'const' is used for variables"],
+          "answer": "'let' allows variable reassignment, 'const' does not",
+          "points": 10,
+          "explanation": "In JavaScript, variables declared with 'let' can be reassigned, while variables declared with 'const' cannot be reassigned, but they must be assigned a value when declared."
+        },
+        {
+          "question": "What is the purpose of a JavaScript 'closure'?",
+          "options": ["To create a sealed environment for data", "To prevent code execution", "To encapsulate variables and functions", "To execute code faster"],
+          "answer": "To encapsulate variables and functions",
+          "points": 10,
+          "explanation": "A closure in JavaScript allows the encapsulation of variables and functions, maintaining their scope even after their parent function has completed execution."
+        },
+        {
+          "question": "What is the 'event loop' in JavaScript?",
+          "options": ["A loop that executes code events repeatedly", "A mechanism for handling asynchronous operations", "A loop for iterating over arrays", "A loop for rendering web pages"],
+          "answer": "A mechanism for handling asynchronous operations",
+          "points": 10,
+          "explanation": "The event loop is a core concept in JavaScript for managing the execution of asynchronous code, ensuring that non-blocking tasks are handled efficiently."
+        },
+        {
+          "question": "What does the 'this' keyword refer to in JavaScript?",
+          "options": ["The current function", "The global object", "The parent object", "The DOM element"],
+          "answer": "The current function",
+          "points": 10,
+          "explanation": "The 'this' keyword in JavaScript typically refers to the current function's context, which can vary depending on how the function is called."
+        },
+        {
+          "question": "Which built-in JavaScript method is used to sort elements in an array?",
+          "options": ["sort()", "order()", "arrange()", "organize()"],
+          "answer": "sort()",
+          "points": 10,
+          "explanation": "The 'sort()' method is used to sort the elements of an array in place and is commonly used for sorting strings and numbers."
+        },
+        {
+          "question": "What is the purpose of the 'JSON.parse()' method in JavaScript?",
+          "options": ["To convert a JSON string to a JavaScript object", "To encode JavaScript objects to JSON format", "To parse HTML documents", "To create new functions"],
+          "answer": "To convert a JSON string to a JavaScript object",
+          "points": 10,
+          "explanation": "'JSON.parse()' is used to parse a JSON-formatted string and convert it into a JavaScript object that can be accessed and manipulated in code."
+        },
+        {
+          "question": "What is the difference between 'null' and 'undefined' in JavaScript?",
+          "options": ["They are identical and can be used interchangeably", "'null' represents an empty object, 'undefined' represents an uninitialized variable", "'null' is a primitive value, 'undefined' is an object", "'undefined' represents a value that is not assigned"],
+          "answer": "'null' represents an empty object, 'undefined' represents an uninitialized variable",
+          "points": 10,
+          "explanation": "In JavaScript, 'null' represents the intentional absence of any object value, while 'undefined' represents a variable that has been declared but has not been assigned a value."
+        },
+        {
+          "question": "What is 'hoisting' in JavaScript?",
+          "options": ["A way to elevate functions to the top of the code", "A technique for optimizing code execution", "A process of variable declaration being moved to the top of its scope", "A method for handling asynchronous operations"],
+          "answer": "A process of variable declaration being moved to the top of its scope",
+          "points": 10,
+          "explanation": "Hoisting in JavaScript is a behavior where variable and function declarations are moved to the top of their containing scope during the compilation phase."
+        },
+        {
+          "question": "What is the purpose of the JavaScript 'bind()' method?",
+          "options": ["To create a new function", "To attach event listeners", "To change the value of 'this'", "To sort arrays"],
+          "answer": "To change the value of 'this'",
+          "points": 10,
+          "explanation": "The 'bind()' method in JavaScript is used to create a new function with a specified 'this' value, allowing for the control of function context."
+        },
+        {
+          "question": "What is a 'promise' in JavaScript?",
+          "options": ["A guarantee that a function will return a value", "A statement that ensures a specific result", "A placeholder for a future value or operation", "A keyword used in loops"],
+          "answer": "A placeholder for a future value or operation",
+          "points": 10,
+          "explanation": "A promise in JavaScript represents a value that might be available now, in the future, or never, and it is commonly used for handling asynchronous operations."
+        }
+      ]
+    },
+    {
+      "title": "Designing using figma",
+      "level": "beginner",
+      "subject": "design",
+      "author": "mikael",
+      "duration": "1",
+      "questions": [
+        {
+          "question": "What is Figma primarily used for?",
+          "options": ["3D modeling", "Graphic design", "Video editing", "Web development"],
+          "answer": "Graphic design",
+          "points": 10,
+          "explanation": "Figma is primarily used for graphic design, including creating user interfaces, web designs, and digital graphics."
+        },
+        {
+          "question": "What type of application is Figma?",
+          "options": ["Desktop software", "Offline software", "Web-based design tool", "Mobile app"],
+          "answer": "Web-based design tool",
+          "points": 10,
+          "explanation": "Figma is a web-based design tool, which means it is accessible through a web browser without requiring installation."
+        },
+        {
+          "question": "What is the primary advantage of using Figma for collaborative design work?",
+          "options": ["It's free", "Real-time collaboration", "Offline access", "Advanced 3D modeling"],
+          "answer": "Real-time collaboration",
+          "points": 10,
+          "explanation": "Figma allows multiple users to collaborate on design projects in real-time, making it a powerful tool for teams."
+        },
+        {
+          "question": "In Figma, what is the purpose of the 'Frames' feature?",
+          "options": ["To add text to a design", "To group layers together", "To create a container for content", "To apply visual effects"],
+          "answer": "To create a container for content",
+          "points": 10,
+          "explanation": "Frames in Figma are used to create containers that hold design elements, such as images, text, and shapes, within a defined area."
+        },
+        {
+          "question": "Which Figma tool is used for creating shapes and vector graphics?",
+          "options": ["Pen tool", "Brush tool", "Text tool", "Eraser tool"],
+          "answer": "Pen tool",
+          "points": 10,
+          "explanation": "The Pen tool in Figma is used for creating and editing shapes and vector graphics with precision."
+        },
+        {
+          "question": "What is the purpose of Figma's 'Prototype' mode?",
+          "options": ["To export design files", "To add text to designs", "To create interactive prototypes", "To apply color schemes"],
+          "answer": "To create interactive prototypes",
+          "points": 10,
+          "explanation": "Figma's 'Prototype' mode allows designers to create interactive prototypes by defining links, transitions, and interactions within their designs."
+        },
+        {
+          "question": "Which file format is commonly used for exporting designs from Figma for development?",
+          "options": [".png", ".jpg", ".svg", ".css"],
+          "answer": ".svg",
+          "points": 10,
+          "explanation": "SVG (Scalable Vector Graphics) is a common file format for exporting designs from Figma for web development due to its scalability and clarity."
+        },
+        {
+          "question": "What is Figma's 'Auto Layout' feature used for?",
+          "options": ["Adding images to designs", "Creating responsive designs", "Adding text to designs", "Applying color gradients"],
+          "answer": "Creating responsive designs",
+          "points": 10,
+          "explanation": "Figma's 'Auto Layout' feature helps designers create responsive and flexible designs that adapt to different screen sizes and content."
+        },
+        {
+          "question": "In Figma, what is the purpose of 'Styles' and 'Components'?",
+          "options": ["To play audio and video", "To manage design assets and consistency", "To create animations", "To edit text"],
+          "answer": "To manage design assets and consistency",
+          "points": 10,
+          "explanation": "Styles and Components in Figma are used to maintain design consistency by managing reusable design elements, such as colors, fonts, and components."
+        },
+        {
+          "question": "Which Figma feature allows you to inspect and extract design details for development?",
+          "options": ["Handoff", "Filters", "Shapes", "Blending modes"],
+          "answer": "Handoff",
+          "points": 10,
+          "explanation": "Figma's 'Handoff' feature provides developers with access to design details, CSS, and assets, making it easier to implement designs."
+        }
+      ]
+    },
+    {
+      "title": "Understanding Artificial Intelligence",
+      "level": "beginner",
+      "subject": "virtual assistant",
+      "author": "mikael",
+      "duration": "2",
+      "questions": [
+        {
+          "question": "What is Artificial Intelligence (AI)?",
+          "options": ["A computer program", "A machine that mimics human behavior", "The simulation of human intelligence in machines", "A type of robot"],
+          "answer": "The simulation of human intelligence in machines",
+          "points": 10,
+          "explanation": "AI refers to the simulation of human intelligence processes by machines, including learning, reasoning, problem-solving, and decision-making."
+        },
+        {
+          "question": "Which field of study is closely related to AI and focuses on developing algorithms that allow computers to learn from and make predictions or decisions based on data?",
+          "options": ["Robotics", "Neuroscience", "Machine Learning", "Physics"],
+          "answer": "Machine Learning",
+          "points": 10,
+          "explanation": "Machine Learning is a subfield of AI that focuses on developing algorithms that enable computers to learn from and make predictions based on data."
+        },
+        {
+          "question": "What is the primary goal of Natural Language Processing (NLP) in AI?",
+          "options": ["To analyze human behavior", "To simulate human emotions", "To enable machines to understand and generate human language", "To create realistic avatars"],
+          "answer": "To enable machines to understand and generate human language",
+          "points": 10,
+          "explanation": "Natural Language Processing (NLP) in AI aims to enable machines to understand, interpret, and generate human language, making it essential for chatbots, language translation, and more."
+        },
+        {
+          "question": "Which AI technique involves using a neural network to approximate a function that can map input data to output data?",
+          "options": ["Reinforcement Learning", "Deep Learning", "Expert Systems", "Genetic Algorithms"],
+          "answer": "Deep Learning",
+          "points": 10,
+          "explanation": "Deep Learning is an AI technique that uses deep neural networks to approximate complex functions and has been particularly successful in tasks like image recognition and natural language understanding."
+        },
+        {
+          "question": "What is the concept of 'singularity' in the context of AI?",
+          "options": ["A point in time when AI surpasses human intelligence", "A type of AI programming language", "A famous AI research institute", "A theory about the origin of AI"],
+          "answer": "A point in time when AI surpasses human intelligence",
+          "points": 10,
+          "explanation": "The concept of 'singularity' in AI refers to a hypothetical point in the future when AI becomes so advanced that it surpasses human intelligence, potentially leading to significant societal changes."
+        },
+        {
+          "question": "What is the term for a type of AI that can make decisions and take actions without human intervention, often used in self-driving cars and autonomous robots?",
+          "options": ["Artificial Neural Network", "Natural Language Processing", "Reinforcement Learning", "Autonomous AI"],
+          "answer": "Reinforcement Learning",
+          "points": 10,
+          "explanation": "Reinforcement Learning is a type of AI that learns from its interactions with an environment, making decisions to maximize a reward signal without human intervention."
+        },
+        {
+          "question": "Which ethical consideration is important in AI development to ensure that AI systems are unbiased and treat all individuals fairly?",
+          "options": ["Transparency", "Privacy", "Security", "Fairness"],
+          "answer": "Fairness",
+          "points": 10,
+          "explanation": "Ensuring fairness in AI development involves addressing biases in algorithms and data to ensure that AI systems do not discriminate against specific groups or individuals."
+        },
+        {
+          "question": "What is the Turing Test in the context of AI?",
+          "options": ["A test to measure a machine's ability to understand human emotions", "A test to determine a machine's ability to simulate human intelligence", "A test for machine learning algorithms", "A test to measure the speed of AI systems"],
+          "answer": "A test to determine a machine's ability to simulate human intelligence",
+          "points": 10,
+          "explanation": "The Turing Test is a measure of a machine's ability to exhibit human-like intelligence in its behavior, often involving a human evaluator who cannot distinguish between human and machine responses."
+        },
+        {
+          "question": "What are the three main categories of AI based on their capabilities?",
+          "options": ["Low-level AI, High-level AI, Superintelligent AI", "Narrow AI, General AI, Superintelligent AI", "Simple AI, Complex AI, Advanced AI", "Basic AI, Intermediate AI, Advanced AI"],
+          "answer": "Narrow AI, General AI, Superintelligent AI",
+          "points": 10,
+          "explanation": "AI is often categorized into Narrow AI (focused on specific tasks), General AI (possessing human-like abilities across tasks), and Superintelligent AI (surpassing human intelligence)."
+        },
+        {
+          "question": "Which science fiction author coined the term 'robotics' and introduced the Three Laws of Robotics?",
+          "options": ["Isaac Asimov", "Arthur C. Clarke", "Philip K. Dick", "Ray Bradbury"],
+          "answer": "Isaac Asimov",
+          "points": 10,
+          "explanation": "Isaac Asimov, a famous science fiction author, coined the term 'robotics' and introduced the Three Laws of Robotics in his stories."
+        }
+      ]
+    }
+]
