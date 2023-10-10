@@ -74,6 +74,7 @@ exports.showMe = asyncWrapper(async (req, res) => {
     const {id} = req.user
     const user = await User.findById(id).select(['-password', '-purpose', '-interest', '-passwordToken', '-cloudinaryId'])
     if(!user) {
+        res.clearCookie('accessToken')
         throw new NotFoundError("No user found")
     }
     res.status(StatusCodes.OK).json({user})

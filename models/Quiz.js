@@ -36,6 +36,7 @@ const quizSchema = new Schema({
         type: String,
         required: [true, "Please provide a title"]
     },
+    coverImage: String,
     level: {
         type: String,
         required: [true, "Please provide a level"],
@@ -70,7 +71,7 @@ const quizSchema = new Schema({
             message: "A quiz require at least one question"
         }
     }
-})
+}, {timestamps: true})
 
 const quizModel = model('Quiz', quizSchema)
 

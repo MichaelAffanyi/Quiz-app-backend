@@ -5,6 +5,7 @@
       "subject": "data science",
       "author": "mikael",
       "duration": "1",
+      "coverImage": "https://images.pexels.com/photos/1809616/pexels-photo-1809616.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "questions": [
         {
           "question": "In what year did World War I begin?",
@@ -84,6 +85,7 @@
       "subject": "web development",
       "author": "mikael",
       "duration": "2",
+      "coverImage": "https://images.pexels.com/photos/2283496/pexels-photo-2283496.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "questions": [
         {
           "question": "What does HTML stand for?",
@@ -163,6 +165,7 @@
       "subject": "web development",
       "author": "mikael",
       "duration": "2",
+      "coverImage": "https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "questions": [
         {
           "question": "What is JavaScript?",
@@ -242,6 +245,7 @@
       "subject": "data science",
       "author": "mikael",
       "duration": "2",
+      "coverImage": "https://images.pexels.com/photos/894156/pexels-photo-894156.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "questions": [
         {
           "question": "What is the primary goal of data science?",
@@ -321,6 +325,7 @@
       "subject": "web development",
       "author": "mikael",
       "duration": "3",
+      "coverImage": "https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=1600",
       "questions": [
         {
           "question": "What is the difference between 'let' and 'const' for declaring variables in JavaScript?",
@@ -400,6 +405,7 @@
       "subject": "design",
       "author": "mikael",
       "duration": "1",
+      "coverImage": "https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "questions": [
         {
           "question": "What is Figma primarily used for?",
@@ -479,6 +485,7 @@
       "subject": "virtual assistant",
       "author": "mikael",
       "duration": "2",
+      "coverImage": "https://images.pexels.com/photos/1809616/pexels-photo-1809616.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "questions": [
         {
           "question": "What is Artificial Intelligence (AI)?",
