@@ -1,7 +1,7 @@
 const asyncWrapper = require('../utils/asyncWrapper')
 const Quiz = require('../models/Quiz')
 const {StatusCodes} = require("http-status-codes");
-const {NotFoundError} = require("../errors");
+const {NotFoundError, BadRequestError} = require("../errors");
 
 exports.addQuiz = asyncWrapper(async (req, res, next) => {
 
@@ -28,6 +28,21 @@ exports.getAllQuizzes = asyncWrapper(async (req, res, next) => {
 
         res.status(StatusCodes.OK).json({recentQuizzes, noHits: recentQuizzes.length})
     }
+    const quizzes = await Quiz.find(query).select('-questions')
+    res.status(StatusCodes.OK).json({data: quizzes, noHits: quizzes.length})
+})
+
+exports.filterQuiz = asyncWrapper(async (req, res, next) => {
+    const {subject, level} = req.body
+    const query = {}
+
+    if(subject.length > 0) {
+        query.subject = {$in: subject}
+    }
+    if(level.length > 0) {
+        query.level = {$in: level}
+    }
+
     const quizzes = await Quiz.find(query).select('-questions')
     res.status(StatusCodes.OK).json({data: quizzes, noHits: quizzes.length})
 })
