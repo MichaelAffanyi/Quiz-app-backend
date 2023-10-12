@@ -46,3 +46,34 @@ exports.filterQuiz = asyncWrapper(async (req, res, next) => {
     const quizzes = await Quiz.find(query).select('-questions')
     res.status(StatusCodes.OK).json({data: quizzes, noHits: quizzes.length})
 })
+
+exports.getSingleQuiz = asyncWrapper(async (req, res, next) => {
+    const {id} = req.params
+    if (!id) {
+        throw new BadRequestError('Please provide id')
+    }
+
+    const quiz = await Quiz.findById(id)
+    if (!quiz) {
+        throw new NotFoundError(`No quiz found with id ${id}`)
+    }
+
+    res.status(StatusCodes.OK).json(quiz)
+})
+
+exports.getQuestion = asyncWrapper(async (req, res, next) => {
+    const {id, questionNo} = req.params
+    if (!id || !questionNo) {
+        throw new BadRequestError('Please provide id and question number')
+    }
+
+    const result = await Quiz.findById(id).select(['questions', '-_id'])
+    if (!result) {
+        throw new NotFoundError(`No quiz found with id ${id}`)
+    }
+    const index = Number(questionNo) - 1
+    const question = result.questions[index]
+    const total = result.questions.length
+    const hasMore = !(index === (total - 1))
+    res.status(StatusCodes.OK).json({question, total, hasMore})
+})
