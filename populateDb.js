@@ -7,7 +7,7 @@ const url = process.env.MONGO_URL.replace('<password>', process.env.DB_PASSWORD)
 const populateDb = async () => {
     try {
         await mongoose.connect(url)
-        await Quiz.deleteMany({})
+        await Quiz.deleteMany()
         await Quiz.create(data)
         console.log('Database populated successfully')
         process.exit(0)

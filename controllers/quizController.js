@@ -67,13 +67,15 @@ exports.getQuestion = asyncWrapper(async (req, res, next) => {
         throw new BadRequestError('Please provide id and question number')
     }
 
-    const result = await Quiz.findById(id).select(['questions', '-_id'])
+    const result = await Quiz.findById(id).select(['-questions.answer', '-questions.explanation', '-_id', '-coverImage', ])
     if (!result) {
         throw new NotFoundError(`No quiz found with id ${id}`)
     }
     const index = Number(questionNo) - 1
     const question = result.questions[index]
+
     const total = result.questions.length
     const hasMore = !(index === (total - 1))
+
     res.status(StatusCodes.OK).json({question, total, hasMore})
 })
