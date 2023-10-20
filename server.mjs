@@ -52,7 +52,7 @@ app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/settings', [getCookies, settingsRouter])
 app.use('/api/v1/quizzes', [getCookies, quizRouter])
 
-app.use(expressMiddleware(server, {}))
+app.use(expressMiddleware(server, {path: "/graphql"}))
 app.use(errorHandler)
 
 
