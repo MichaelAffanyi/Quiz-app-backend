@@ -1,8 +1,7 @@
 const {connect} = require('mongoose')
 
-const url = process.env.MONGO_URL.replace('<password>', process.env.DB_PASSWORD)
-
 const connectDB = async () => {
+    const url = process.env.MONGO_URL.replace('<password>', process.env.DB_PASSWORD)
     try {
         await connect(url)
         console.log('Database connected successfully')
