@@ -1,11 +1,18 @@
 
 const typeDefs = `#graphql
     type Question {
+        id: String!
         question: String!
         answer: String!
         point: Int!
         explanation: String
         options: [String!]
+        status: String
+    }
+
+    input answer {
+        id: String!
+        value: String!
     }
 
     type Quiz {
@@ -22,9 +29,13 @@ const typeDefs = `#graphql
     }
 
     type Query {
-        getQuiz(
+        quizzes(
             id: String
         ): [Quiz!]
+        submitAnswers(
+            quizId: String!
+            answers: [answer!]
+        ): [Question!]
     }
 `
 
