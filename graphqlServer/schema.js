@@ -1,12 +1,18 @@
 
 const typeDefs = `#graphql
+    
+    type Option {
+        tag: String!
+        value: String!
+    }
+    
     type Question {
         id: String!
         question: String!
         answer: String!
         point: Int!
         explanation: String
-        options: [String!]
+        options: [Option!]
         status: String
     }
 
