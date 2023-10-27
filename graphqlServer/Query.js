@@ -19,7 +19,7 @@ const queries = {
             const isCorrect = answer.value === question.answer
             return {
                 id: question._id,
-                points: question.points,
+                point: question.points,
                 answer: question.answer,
                 explanation: question.explanation,
                 options: question.options,
@@ -27,6 +27,7 @@ const queries = {
                 status: isCorrect ? "correct" : "incorrect"
             }
         })
+        await pubsub.publish('GET_TIMER', {getTimer: "timer"})
         return {answers: newAnswers}
     }
 }
