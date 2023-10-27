@@ -5,6 +5,11 @@ const typeDefs = `#graphql
         tag: String!
         value: String!
     }
+
+    type Answers {
+        answers: [Question!]
+        percentage: Int
+    }
     
     type Question {
         id: String!
@@ -41,7 +46,7 @@ const typeDefs = `#graphql
         submitAnswers(
             quizId: String!
             answers: [answer!]
-        ): [Question!]
+        ): Answers!
     }
 
     type Mutation {

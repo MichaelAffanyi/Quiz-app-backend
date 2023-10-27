@@ -7,7 +7,6 @@ const resolvers = {
     Mutation,
     Subscription,
     Question: {
-        id: (root) => root._id,
         options: (root) => {
             const tags = ['A', 'B', 'C', 'D']
             return root.options.map((ele, index) => {
@@ -16,6 +15,16 @@ const resolvers = {
                     value: ele
                 }
             })
+        }
+    },
+    Answers: {
+        percentage: (root) => {
+            const total = root.answers.length
+            let correctTotal = 0
+            root.answers.forEach(answer => {
+                answer.status === 'correct' && correctTotal++
+            })
+            return ((correctTotal / total) * 100).toFixed(2)
         }
     }
 }

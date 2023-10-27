@@ -14,16 +14,20 @@ const queries = {
     submitAnswers: async (root, args) => {
         const {quizId, answers} = args
         const questions = await Quiz.findOne({_id: quizId}).select('questions')
-        answers.forEach(answer => {
-            const questionObj = questions.questions.find(question => question._id.toString() === answer.id)
-            const isCorrect = questionObj.answer === answer.value
-            if (isCorrect) {
-                questionObj.status = "correct"
-            } else {
-                questionObj.status = "incorrect"
+        const newAnswers = questions.questions.map(question => {
+            const answer = answers.find(answer => answer.id === question._id.toString())
+            const isCorrect = answer.value === question.answer
+            return {
+                id: question._id,
+                points: question.points,
+                answer: question.answer,
+                explanation: question.explanation,
+                options: question.options,
+                question: question.question,
+                status: isCorrect ? "correct" : "incorrect"
             }
         })
-        return questions.questions
+        return {answers: newAnswers}
     }
 }
 
