@@ -1,4 +1,6 @@
 const Quiz = require("../models/Quiz");
+const {PubSub} = require("graphql-subscriptions")
+const pubsub = new PubSub()
 
 const queries = {
     quizzes: async (root, args) => {
@@ -6,6 +8,7 @@ const queries = {
         if(args.id) {
             query._id = args.id
         }
+        await pubsub.publish("GET_TIMER", {getTimer: "hello"})
         return Quiz.find(query)
     },
     submitAnswers: async (root, args) => {

@@ -1,8 +1,11 @@
 const Query = require("./Query")
 const Mutation = require("./Mutation")
+const Subscription = require("./Subscription")
 
 const resolvers = {
     Query,
+    Mutation,
+    Subscription,
     Question: {
         id: (root) => root._id,
         options: (root) => {
@@ -15,7 +18,6 @@ const resolvers = {
             })
         }
     }
-    // Mutation
 }
 
 module.exports = resolvers

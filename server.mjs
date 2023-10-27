@@ -21,14 +21,35 @@ import {expressMiddleware} from "@apollo/server/express4";
 import {ApolloServerPluginDrainHttpServer} from "@apollo/server/plugin/drainHttpServer";
 import typeDefs from "./graphqlServer/schema.js"
 import resolvers from "./graphqlServer/resolvers.js"
+import {makeExecutableSchema} from "@graphql-tools/schema";
+import {WebSocketServer} from "ws";
+import {useServer} from "graphql-ws/lib/use/ws";
 
 const app = express()
 const httpServer = http.createServer(app)
 
+const wsServer = new WebSocketServer({
+    server: httpServer,
+    path: "/graphql-websocket"
+})
+
+const schema = makeExecutableSchema({typeDefs, resolvers})
+const serverCleanup = useServer({schema}, wsServer)
+
 const server = new ApolloServer({
-    typeDefs,
-    resolvers,
-    plugins: [ApolloServerPluginDrainHttpServer({httpServer})]
+    schema,
+    plugins: [
+        ApolloServerPluginDrainHttpServer({httpServer}),
+        {
+            async serverWillStart() {
+                return {
+                    async drainServer() {
+                        await serverCleanup.dispose()
+                    }
+                }
+            }
+        }
+    ],
 })
 
 await server.start()

@@ -43,6 +43,14 @@ const typeDefs = `#graphql
             answers: [answer!]
         ): [Question!]
     }
+
+    type Mutation {
+        setTimer(duration: String!): String!
+    }
+
+    type Subscription {
+        getTimer: String!
+    }
 `
 
 module.exports = typeDefs

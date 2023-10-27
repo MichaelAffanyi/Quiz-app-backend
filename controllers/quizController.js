@@ -26,7 +26,7 @@ exports.getAllQuizzes = asyncWrapper(async (req, res, next) => {
             .limit(4)
             .select('-questions')
 
-        res.status(StatusCodes.OK).json({recentQuizzes, noHits: recentQuizzes.length})
+        return res.status(StatusCodes.OK).json({recentQuizzes, noHits: recentQuizzes.length})
     }
     const quizzes = await Quiz.find(query).select('-questions')
     res.status(StatusCodes.OK).json({data: quizzes, noHits: quizzes.length})
