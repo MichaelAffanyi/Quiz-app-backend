@@ -21,6 +21,7 @@ const queries = {
                 id: question._id,
                 point: question.points,
                 answer: question.answer,
+                selectedOption: answer.value,
                 explanation: question.explanation,
                 options: question.options,
                 question: question.question,

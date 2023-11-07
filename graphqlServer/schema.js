@@ -19,6 +19,7 @@ const typeDefs = `#graphql
         explanation: String
         options: [Option!]
         status: String
+        selectedOption: String
     }
 
     input answer {
