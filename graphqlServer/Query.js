@@ -15,12 +15,16 @@ const queries = {
         const {quizId, answers} = args
         const questions = await Quiz.findOne({_id: quizId}).select('questions')
         const newAnswers = questions.questions.map(question => {
+            let isCorrect = false
             const answer = answers.find(answer => answer.id === question._id.toString())
-            const isCorrect = answer.value === question.answer
+            if (answer) {
+                isCorrect = answer.value === question.answer
+            }
             return {
                 id: question._id,
                 point: question.points,
                 answer: question.answer,
+                selectedOption: answer ? answer.value : null,
                 explanation: question.explanation,
                 options: question.options,
                 question: question.question,
