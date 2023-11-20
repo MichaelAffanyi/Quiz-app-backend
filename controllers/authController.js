@@ -102,7 +102,7 @@ exports.forgotPassword = asyncWrapper(async (req, res) => {
             html: `
                     <div class="container">
                         <h1>Please click on the link below to reset your password</h1>
-                        <a href="http://localhost:4000/reset-password/${randomToken}">Password reset</a>
+                        <a href="http://localhost:4000/auth/reset-password/${randomToken}">Password reset</a>
                     </div>
                    `
         }
