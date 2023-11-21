@@ -61,7 +61,7 @@ cloudinary.config({
 })
 
 app.set('trust proxy', 1)
-app.use(cors())
+app.use(cors({'exposedHeaders': "*", credentials: true}))
 app.use(express.json())
 app.use(fileUpload({useTempFiles: true}))
 app.use(cookieParser(process.env.JWT_SECRET))

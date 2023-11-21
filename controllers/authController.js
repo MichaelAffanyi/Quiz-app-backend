@@ -5,7 +5,7 @@ const {BadRequestError, NotFoundError, UnAuthorizedError} = require('../errors')
 const crypto = require('crypto')
 const {StatusCodes} = require("http-status-codes");
 const fs = require("fs");
-const {hashPassword} = require("../helpers");
+const {hashPassword, createToken} = require("../helpers");
 const cloudinary = require('cloudinary').v2
 
 exports.registerUser = asyncWrapper(
@@ -30,8 +30,11 @@ exports.registerUser = asyncWrapper(
             // name: userDoc.name,
             // email: userDoc.email
         }
-        attachCookies({res, payload: user, expires})
-        res.status(200).json({msg: 'User Registered successfully'})
+
+        const token = createToken(user)
+        // attachCookies({res, payload: user, expires})
+        console.log(token)
+        res.status(200).json({msg: 'User Registered successfully', token})
     }
 )
 
@@ -60,8 +63,12 @@ exports.loginUser = asyncWrapper(
             // name: user.name,
             // email: user.email
         }
-        attachCookies({res, payload: jwtUser, expires: tokenLifetime})
-        res.status(200).json({msg: 'login successful'})
+        const token = createToken(jwtUser)
+        // attachCookies({res, payload: jwtUser, expires: tokenLifetime})
+        // res.set('page-size', 20)
+        // res.set('set-cookies', `accessToken=${token}; HttpOnly; Secure; SameSite=None; Max-Age=${tokenLifetime}; Path=/;`)
+        // res.set('Access-Control-Expose-Headers', '*')
+        res.status(200).json({msg: 'login successful', token})
     }
 )
 
