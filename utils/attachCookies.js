@@ -16,7 +16,6 @@ const attachCookies = ({res, payload, expires}) => {
 }
 
 const getCookies = asyncWrapper(async (req, res, next) => {
-    console.log(req.headers.authorization)
     const authToken = req.headers.authorization
     if(!authToken || !authToken.startsWith('Bearer')) {
         throw new UnAuthorizedError("Not authorized to access this resource")
