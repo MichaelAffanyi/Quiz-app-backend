@@ -2,12 +2,69 @@ const asyncWrapper = require('../utils/asyncWrapper')
 const Quiz = require('../models/Quiz')
 const {StatusCodes} = require("http-status-codes");
 const {NotFoundError, BadRequestError} = require("../errors");
+const cloudinary = require('cloudinary').v2
+const fs = require("fs");
 
 exports.addQuiz = asyncWrapper(async (req, res, next) => {
+    const {subject, level, title, duration, author} = req.body
+    // console.log(req.files)
+    if (!subject || !level || !title || !duration || !author || !req.files) {
+        throw new BadRequestError('Please provide all required fields')
+    }
+
+    const {coverImage} = req.files
+    if (!coverImage.mimetype.startsWith('image')) {
+        throw new BadRequestError('Please provide an image')
+    }
+    const result = await cloudinary.uploader.upload( coverImage.tempFilePath, {
+        file: coverImage.tempFilePath,
+        folder: 'quiz-app/quiz cover images',
+        public_id: coverImage.name,
+        overwrite: true,
+        use_filename: true,
+        resource_type: 'auto'
+
+    })
+
+    fs.unlinkSync(coverImage.tempFilePath)
+
+    req.body.coverImage = result.secure_url
+    req.body.cloudinaryId = result.public_id
 
     const quizDoc = await Quiz.create(req.body)
     res.status(StatusCodes.OK).json(quizDoc)
 })
+
+exports.updateQuizQuestion = asyncWrapper(async (req, res, next) => {
+    const {id} = req.params
+    const {question, answer, points, explanation, options} = req.body
+    if(!question || !answer || !points || !explanation || !options) {
+        throw new BadRequestError('Please provide all required fields')
+    }
+    if (!id) {
+        throw new BadRequestError('Please provide id')
+    }
+
+    const quiz = await Quiz.findById(id)
+    if (!quiz) {
+        throw new NotFoundError(`No quiz found with id ${id}`)
+    }
+
+    const questionObj = {
+        question,
+        answer,
+        points,
+        explanation,
+        options
+    }
+
+    quiz.questions.push(questionObj)
+    await quiz.save()
+
+    res.status(StatusCodes.OK).json({msg: 'Question added'})
+
+})
+
 exports.getAllQuizzes = asyncWrapper(async (req, res, next) => {
     const {subject, level, recent} = req.query
     const query = {}
@@ -22,7 +79,7 @@ exports.getAllQuizzes = asyncWrapper(async (req, res, next) => {
 
     if (recent) {
         const recentQuizzes = await Quiz.find({})
-            .sort({createdAt: 1})
+            .sort({createdAt: -1})
             .limit(4)
             .select('-questions')
 

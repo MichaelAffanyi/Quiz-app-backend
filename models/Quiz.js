@@ -41,17 +41,17 @@ const quizSchema = new Schema({
         type: String,
         required: [true, "Please provide a level"],
         enum: {
-            values: ['beginner', 'intermediate', 'expert'],
+            values: ['100l', '200l', '300l', '400l', '500l',],
             message: '{VALUE} is not a supported level'
         },
     },
     subject: {
         type: String,
         required: [true, "Please provide a subject"],
-        enum: {
-            values: ['web development', 'design', 'data science', 'marketing', 'virtual assistant'],
-            message: '{VALUE} is not a supported subject'
-        },
+        // enum: {
+        //     values: ['web development', 'design', 'data science', 'marketing', 'virtual assistant'],
+        //     message: '{VALUE} is not a supported subject'
+        // },
     },
     author: {
         type: String,
@@ -63,14 +63,19 @@ const quizSchema = new Schema({
     },
     questions: {
         type: [questionSchema],
-        required: [true, "A quiz require question"],
-        validate: {
-            validator: function (arr) {
-                return arr.length > 0
-            },
-            message: "A quiz require at least one question"
-        }
-    }
+        required: false
+        // required: [true, "A quiz require question"],
+        // validate: {
+        //     validator: function (arr) {
+        //         return arr.length > 0
+        //     },
+        //     message: "A quiz require at least one question"
+        // }
+    },
+    cloudinaryId: {
+        type: String,
+        default: ''
+    },
 }, {timestamps: true})
 
 const quizModel = model('Quiz', quizSchema)

@@ -159,7 +159,7 @@ exports.uploadProfile = asyncWrapper(async (req, res) => {
 
     const result = await cloudinary.uploader.upload(file.image.tempFilePath, {
         public_id: user.cloudinaryId,
-        folder: 'quiz app',
+        folder: 'quiz app/user profiles',
         use_filename: true,
         overwrite: true
     })
