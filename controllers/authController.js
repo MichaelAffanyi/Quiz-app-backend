@@ -10,18 +10,25 @@ const cloudinary = require('cloudinary').v2
 
 exports.registerUser = asyncWrapper(
     async (req, res) => {
-        let role = 'user'
-        const {name, email, password} = req.body
+        let adminRole = ''
+        const {name, email, password, role} = req.body
         if(!name || !email || !password) {
             throw new BadRequestError('Name, email or password cannot be empty')
         }
-        const hashedPassword = await hashPassword(password)
         const users = await User.countDocuments()
-        console.log(users)
         if (users < 1) {
-            role = 'admin'
+            adminRole = 'admin'
         }
-        const userDoc = await User.create({name, email, password: hashedPassword, role})
+        if (users > 0 && !role) {
+            throw new BadRequestError('Please provide role')
+        }
+        if (role === 'student') {
+            if (!req.body.program || !req.body.level) {
+                throw new BadRequestError('Please provide program and level')
+            }
+        }
+        const hashedPassword = await hashPassword(password)
+        const userDoc = await User.create({...req.body, password: hashedPassword, role: adminRole !== '' ? adminRole : role})
 
         const expires = 1000 * 60 * 60 * 24
         const user = {
@@ -32,8 +39,6 @@ exports.registerUser = asyncWrapper(
         }
 
         const token = createToken(user)
-        // attachCookies({res, payload: user, expires})
-        console.log(token)
         res.status(200).json({msg: 'User Registered successfully', token})
     }
 )

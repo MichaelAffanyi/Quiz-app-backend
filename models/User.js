@@ -59,9 +59,26 @@ const userSchema = new Schema({
     role: {
         type: String,
         required: false,
-        enum: ['admin', 'user'],
+        enum: {
+            values: ['student', 'lecturer', 'admin'],
+            message: '{VALUE} is not a supported role'
+
+        },
         default: 'user'
-    }
+    },
+    program: {
+        type: String,
+        required: false,
+        default: ''
+    },
+    level: {
+        type: String,
+        required: false,
+        enum: {
+            values: ['100l', '200l', '300l', '400l', '500l',],
+            message: '{VALUE} is not a supported level'
+        }
+    },
 })
 
 // userSchema.methods.hashPassword = async function() {
