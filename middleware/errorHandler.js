@@ -21,8 +21,8 @@ const errorHandler = (err, req, res, next) => {
         customError.status = 400
     }
     if (err.name === 'CastError') {
-        customError.msg = `No item found with id : ${err.value}`;
-        customError.statusCode = 404;
+        customError.message = `No item found with id : ${err.value}`;
+        customError.status = 404;
     }
     return res.status(customError.status).json({error: customError.message})
 }

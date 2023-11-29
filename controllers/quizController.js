@@ -47,7 +47,7 @@ exports.updateQuizQuestion = asyncWrapper(async (req, res, next) => {
 
     const quiz = await Quiz.findById(id)
     if (!quiz) {
-        throw new NotFoundError(`No quiz found with id ${id}`)
+        throw new NotFoundError('Invalid quiz id')
     }
 
     const questionObj = {
