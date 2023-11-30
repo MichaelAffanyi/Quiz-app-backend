@@ -46,6 +46,7 @@ const typeDefs = `#graphql
         ): [Quiz!]
         submitAnswers(
             quizId: String!
+            userId: String!
             answers: [answer!]
         ): Answers!
     }

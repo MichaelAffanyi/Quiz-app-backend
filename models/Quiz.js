@@ -1,5 +1,14 @@
 const {model, Schema} = require('mongoose')
 
+const userScoreSchema = new Schema({
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: [true, "Please provide a user"]
+    },
+    score: Number,
+})
+
 const questionSchema = new Schema({
     question: {
         type: String,
@@ -48,13 +57,10 @@ const quizSchema = new Schema({
     subject: {
         type: String,
         required: [true, "Please provide a subject"],
-        // enum: {
-        //     values: ['web development', 'design', 'data science', 'marketing', 'virtual assistant'],
-        //     message: '{VALUE} is not a supported subject'
-        // },
     },
     author: {
-        type: String,
+        type: Schema.Types.ObjectId,
+        ref: 'User',
         required: [true, "Please provide an author for the quiz"]
     },
     duration: {
@@ -64,18 +70,23 @@ const quizSchema = new Schema({
     questions: {
         type: [questionSchema],
         required: false
-        // required: [true, "A quiz require question"],
-        // validate: {
-        //     validator: function (arr) {
-        //         return arr.length > 0
-        //     },
-        //     message: "A quiz require at least one question"
-        // }
     },
     cloudinaryId: {
         type: String,
         default: ''
     },
+    status: {
+        type: String,
+        default: 'inactive',
+        enum: {
+            values: ['active', 'inactive'],
+            message: '{VALUE} is not a supported status'
+        }
+    },
+    scores: {
+        type: [userScoreSchema],
+        required: false
+    }
 }, {timestamps: true})
 
 const quizModel = model('Quiz', quizSchema)

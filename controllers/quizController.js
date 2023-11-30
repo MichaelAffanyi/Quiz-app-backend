@@ -89,6 +89,12 @@ exports.getAllQuizzes = asyncWrapper(async (req, res, next) => {
     res.status(StatusCodes.OK).json({data: quizzes, noHits: quizzes.length})
 })
 
+exports.getLecturerQuizzes = asyncWrapper(async (req, res, next) => {
+    const {id} = req.user
+    const quizzes = await Quiz.find({author: id}).select('-questions')
+    res.status(StatusCodes.OK).json({data: quizzes, noHits: quizzes.length})
+})
+
 exports.filterQuiz = asyncWrapper(async (req, res, next) => {
     const {subject, level} = req.body
     const query = {}
